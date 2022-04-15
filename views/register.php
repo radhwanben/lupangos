@@ -42,33 +42,30 @@
     <div class="row justify-content-md-center">
 <form>
   <div class="form-group">
-    <label for="exampleInputEmail1">Nom' Utilisateur</label>
-    <small id="emailHelp" class="form-text text-muted">require</small>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <label for="NomUtilisateur">Nom' Utilisateur</label>
+    <small id="NomUtilisateur" class="form-text text-muted">require</small>
+    <input type="text" class="form-control" id="NomUtilisateur" aria-describedby="NomUtilisateur" placeholder="Nom' Utilisateur">
   </div>
   <div class="form-group">
   <small id="emailHelp" class="form-text text-muted">require</small>
-    <label for="exampleInputPassword1">E-mail</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+    <label for="exampleInputEmail">E-mail</label>
+    <input type="email" class="form-control" id="exampleInputemail" placeholder="E-mail">
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
+    <label for="exampleInputpassword">mot de passe</label>
     <small id="emailHelp" class="form-text text-muted">require</small>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <input type="password" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="mot de passe">
     <i class="fa-solid fa-eye errspan"></i>
 
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
+    <label for="exampleInputphone">Téléphone portable</label>
     <small id="emailHelp" class="form-text text-muted">require</small>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+    <input type="email" class="form-control" id="exampleInputphone aria-describedby="phoneHelp" placeholder="Téléphone portable">
     <i class="fa-solid fa-eye errspan"></i>
 
   </div>
-  <div class="form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
+
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
