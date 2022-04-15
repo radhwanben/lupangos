@@ -61,7 +61,7 @@
   <div class="form-group">
     <label for="exampleInputphone">Téléphone portable</label>
     <small id="emailHelp" class="form-text text-muted">require</small>
-    <input type="email" class="form-control" id="exampleInputphone aria-describedby="phoneHelp" placeholder="Téléphone portable">
+    <input type="text" class="form-control" id="exampleInputphone aria-describedby="phoneHelp" placeholder="Téléphone portable">
     <i class="fa-solid fa-eye errspan"></i>
 
   </div>
