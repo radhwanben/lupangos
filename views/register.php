@@ -44,30 +44,61 @@
   <div class="form-group">
     <label for="NomUtilisateur">Nom' Utilisateur</label>
     <small id="NomUtilisateur" class="form-text text-muted">require</small>
-    <input type="text" class="form-control" id="NomUtilisateur" aria-describedby="NomUtilisateur" placeholder="Nom' Utilisateur">
+    <input type="text" class="form-control" id="NomUtilisateur" aria-describedby="NomUtilisateur" placeholder="Nom' Utilisateur" required>
   </div>
   <div class="form-group">
   <small id="emailHelp" class="form-text text-muted">require</small>
     <label for="exampleInputEmail">E-mail</label>
-    <input type="email" class="form-control" id="exampleInputemail" placeholder="E-mail">
+    <input type="email" class="form-control" id="exampleInputemail" placeholder="E-mail" required>
   </div>
   <div class="form-group">
     <label for="exampleInputpassword">mot de passe</label>
     <small id="emailHelp" class="form-text text-muted">require</small>
-    <input type="password" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="mot de passe">
-    <i class="fa-solid fa-eye errspan"></i>
+    <input type="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="mot de passe" required>
+    <i class="fa-solid fa-eye errspan" id="togglePassword"></i>
 
   </div>
   <div class="form-group">
     <label for="exampleInputphone">Téléphone portable</label>
     <small id="emailHelp" class="form-text text-muted">require</small>
-    <input type="text" class="form-control" id="exampleInputphone aria-describedby="phoneHelp" placeholder="Téléphone portable">
-    <i class="fa-solid fa-eye errspan"></i>
+  <div class="form-group">
+    <input type="text" class="form-control" id="phone"  name="phone" aria-describedby="phoneHelp" placeholder="Téléphone portable" required>
+    
+
+  </div>
+<br>
 
   </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+
+<script>
+   const togglePassword = document.querySelector("#togglePassword");
+        const password = document.querySelector("#password");
+
+        togglePassword.addEventListener("click", function () {
+            // toggle the type attribute
+            const type = password.getAttribute("type") === "password" ? "text" : "password";
+            password.setAttribute("type", type);
+            
+            // toggle the icon
+            this.classList.toggle("bi-eye");
+        });
+
+        // prevent form submit
+        const form = document.querySelector("form");
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+        });
+            var input = document.querySelector("#phone");
+            window.intlTelInput(input, {
+                separateDialCode: true,
+                excludeCountries: ["in", "il"],
+                preferredCountries: ["fr", "us", "ru", "jp"]
+            });
+        </script>
 
 
 </div>
