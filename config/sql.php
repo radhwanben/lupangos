@@ -19,7 +19,7 @@ $users = "CREATE TABLE IF NOT EXISTS users (
 
 
 
-try{
+
     $db->exec($users);
     echo "Tables created successfully";
 }catch(PDOException $e) {
