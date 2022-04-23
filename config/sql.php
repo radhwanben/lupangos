@@ -21,7 +21,7 @@ $users = "CREATE TABLE IF NOT EXISTS users (
 
 
 
-    $db->execute($users);
+    $db->exec($users);
     echo "Tables created successfully";
 }catch(PDOException $e) {
     echo $sql . "<br>" . $e->getMessage();
