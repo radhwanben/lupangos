@@ -1,6 +1,6 @@
 <?php
 
-    include '../includes/header.php';
+    include 'includes/header.php';
 
 ?>
 
@@ -28,7 +28,7 @@
 				
 			
 				<li     style="border: 3px solid grey;">
-			<a href="http://lupangos.com/create-listing/" class=""><i class="fa-solid fa-user" style="  background-color: white;
+			<a href="/login" class=""><i class="fa-solid fa-user" style="  background-color: white;
   border-radius: 50%;
   border: 1px solid grey;
   padding: 10px;"></i> conextion</a>		</li>
@@ -40,21 +40,21 @@
 <br>
 <div class="container">
     <div class="row justify-content-md-center">
-<form>
+<form action="/register" method="POST">
   <div class="form-group">
     <label for="NomUtilisateur">Nom' Utilisateur</label>
     <small id="NomUtilisateur" class="form-text text-muted">require</small>
-    <input type="text" class="form-control" id="NomUtilisateur" aria-describedby="NomUtilisateur" placeholder="Nom' Utilisateur" required>
+    <input type="text" class="form-control" id="NomUtilisateur" aria-describedby="NomUtilisateur" name="uname" placeholder="Nom' Utilisateur" required>
   </div>
   <div class="form-group">
   <small id="emailHelp" class="form-text text-muted">require</small>
     <label for="exampleInputEmail">E-mail</label>
-    <input type="email" class="form-control" id="exampleInputemail" placeholder="E-mail" required>
+    <input type="email" class="form-control" id="email" name="email" placeholder="E-mail" required>
   </div>
   <div class="form-group">
     <label for="exampleInputpassword">mot de passe</label>
     <small id="emailHelp" class="form-text text-muted">require</small>
-    <input type="password" class="form-control" id="password" aria-describedby="emailHelp" placeholder="mot de passe" required>
+    <input type="password" class="form-control" id="password" aria-describedby="passwordHelp" name="password" placeholder="mot de passe" required>
     <i class="fa-solid fa-eye errspan" id="togglePassword"></i>
 
   </div>
@@ -70,7 +70,7 @@
 
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <input type="submit" name="btn-signup" class="btn btn-primary" value="register" />
 </form>
 
 
@@ -88,15 +88,12 @@
         });
 
         // prevent form submit
-        const form = document.querySelector("form");
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-        });
+
             var input = document.querySelector("#phone");
             window.intlTelInput(input, {
                 separateDialCode: true,
                 excludeCountries: ["in", "il"],
-                preferredCountries: ["fr", "us", "ru", "jp"]
+                preferredCountries: ["cm", "us", "ru", "jp"]
             });
         </script>
 

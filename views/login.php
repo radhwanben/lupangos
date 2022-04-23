@@ -1,6 +1,6 @@
 <?php
 
-include '../includes/header.php';
+include 'includes/header.php';
 
 ?>
 <header class="header-main-wrap ">
@@ -42,7 +42,7 @@ include '../includes/header.php';
 			
 		
 				<li>
-			<a href="http://lupangos.com/create-listing/" class=""><i class="fa-solid fa-user" style="  background-color: white;
+			<a href="/login" class=""><i class="fa-solid fa-user" style="  background-color: white;
   border-radius: 50%;
   border: 1px solid grey;
   padding: 10px;"></i> conextion</a>		</li>
@@ -63,24 +63,25 @@ include '../includes/header.php';
 		<div class="card-text">
             <p class="card-title">concter vous pour decouvrir toutes non fonctionnalités</p>
 
+
 			<!--
 			<div class="alert alert-danger alert-dismissible fade show" role="alert">Incorrect username or password.</div> -->
-			<form>
+			<form action="/login" method="POST">
 				<!-- to error: add class "has-danger" -->
 				<div class="form-group">
 <label for="exampleInputEmail1" style="padding-bottom: 20px;padding-top: 20px;">E-mail address</label>
-          <input type="email" class="form-control form-control-sm"  >
+          <input type="email" name="email" class="form-control form-control-sm"  required>
 				</div>
 				<div class="form-group">
-					<label for="exampleInputPassword1"  style="padding-bottom: 2px;padding-top: 5px;">Password</label>
-					<input type="password" class="form-control form-control-sm"  >
-          <i class="fa-solid fa-eye errspan"></i>
+					<label for="password"  style="padding-bottom: 2px;padding-top: 5px;">Password</label>
+					<input type="password" id="password" class="form-control form-control-sm" name="password" required  >
+          <i class="fa-solid fa-eye errspan" id="togglePassword"></i>
         </div>
         <label for="exampleInputPassword1"  style="padding-bottom: 10px;padding-top: 10px;">
         <a href="#" style="float:left;font-size:12px; text-decoration: none;">Forgot password?</a>
         </label>
         <div class="form-group">
-        <button type="submit" class="form-control form-control-sm btn btn-primary btn-block">Sign in</button>
+        <button type="submit" class="form-control form-control-sm btn btn-primary btn-block" name="btn-login">Sign in</button>
         </div>
 				
 			</form>
@@ -90,8 +91,24 @@ include '../includes/header.php';
 </div>
 
   <div class="sign-up">
-					Don't have an account? <a href="#" style="text-decoration:none">Create One</a>
+					Don't have an account? <a href="/register" style="text-decoration:none">Create One</a>
 				</div>
   </div>
   
+
+  
+<script>
+   const togglePassword = document.querySelector("#togglePassword");
+        const password = document.querySelector("#password");
+
+        togglePassword.addEventListener("click", function () {
+            // toggle the type attribute
+            const type = password.getAttribute("type") === "password" ? "text" : "password";
+            password.setAttribute("type", type);
+            
+            // toggle the icon
+            this.classList.toggle("bi-eye");
+        });
+</script>
+
 </body>
