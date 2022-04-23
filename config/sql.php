@@ -1,10 +1,10 @@
 <?php
 
-require_once('class/Database.php');
+require_once('class/database.php');
 
   try {
 
-    $db = Database::connection();
+    $db = database::connection();
 
     // sql to create table
     $users = "CREATE TABLE IF NOT EXISTS users (
