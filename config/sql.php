@@ -14,8 +14,7 @@ require_once('class/database.php');
    `user_pass` VARCHAR( 255 ) NOT NULL ,
     UNIQUE (`user_name`),
     UNIQUE (`user_email`)
-) ENGINE = MYISAM ;
-";
+);";
 try{
     $db->exec($users);
     echo "Tables created successfully";
