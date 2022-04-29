@@ -1,6 +1,7 @@
 <?php
 
     include 'includes/header.php';
+    
 
 ?>
 
@@ -39,6 +40,9 @@
 <br>
 <br>
 <div class="container">
+
+
+
     <div class="row justify-content-md-center">
 <form action="/register" method="POST">
   <div class="form-group">

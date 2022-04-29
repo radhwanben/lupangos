@@ -2,6 +2,9 @@
 
 require_once 'class/database.php';
 require_once 'class/user.php';
+require_once 'class/Mail.php';
+require 'config/config.php';
+
 
 $user =new User();
 
@@ -9,6 +12,8 @@ if($user->is_loggedin()!="")
 {
     $user->redirect('home.php');
 }
+
+// register user part
 
 if(isset($_POST['btn-signup']))
 {
@@ -34,25 +39,42 @@ if(isset($_POST['btn-signup']))
    }
    else
    {
+      $activecode=$user->generate_activation_code();
       try
       {
-         $stmt = $user->db->prepare("SELECT user_name,user_email FROM users WHERE user_name=:uname OR user_email=:umail");
+        /* $stmt = $user->db->prepare("SELECT username,email FROM users WHERE username=:uname OR email=:umail");
          $stmt->execute(array(':uname'=>$uname, ':umail'=>$umail));
          $row=$stmt->fetch(PDO::FETCH_ASSOC);
-    
-         if($row['user_name']==$uname) {
-            $error[] = "sorry username already taken !";
+         if($row['username'] == $uname) {
+            $errors[] = "sorry username already taken !";
          }
-         else if($row['user_email']==$umail) {
-            $error[] = "sorry email id already taken !";
+         elseif($row['email'] == $umail) {
+            $errors[] = "sorry email id already taken !";
+
          }
          else
-         {
-            if($user->register($uname,$umail,$upass,$uphone)) 
+         {*/
+            
+            if($user->register($uname,$umail,$upass,$uphone,$activecode)) 
             {
-                $user->redirect('/home');
+              
+
+         // sending email for confirmation account activate process
+         $recieverEmail = $umail;
+         $subject = "Activate Your Account ";
+         $email_template ="views/validatemail.html";
+         $body = file_get_contents($email_template);
+         $body =str_replace('%uname%', $uname, $body);
+         $body =str_replace('%activation_code%', $activecode, $body);
+         $mailer = new Mail($SMTP_USER,$SMTP_PASSWORD,$SMTP_HOST,$SMTP_PORT);
+    
+         $mailer->sendMail($recieverEmail,$subject,$body);
+         
+         // redirect the user to the a page have alert to activate his account
+
+         $user->redirect('/home');
             }
-         }
+         
      }
      catch(PDOException $e)
      {
@@ -60,6 +82,9 @@ if(isset($_POST['btn-signup']))
      }
   } 
 }
+
+
+// login user part 
 
 if(isset($_POST['btn-login']))
 {
@@ -74,6 +99,8 @@ if(isset($_POST['btn-login']))
  {
    $user->redirect('/login');
 } 
+
+
 }
 
 ?>

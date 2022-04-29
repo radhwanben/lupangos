@@ -10,6 +10,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/sql', 'config/sql.php');
     $r->addRoute('GET', '/register', 'views/register.php');
     $r->addRoute('GET', '/home', 'views/home.php');
+    $r->addRoute('GET', '/admin', 'views/dashbord.php');
     $r->addRoute('POST', '/register', 'class/checking.php');
     $r->addRoute('POST', '/login', 'class/checking.php');
 });
