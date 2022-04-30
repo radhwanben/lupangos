@@ -40,10 +40,7 @@
 <br>
 <br>
 <div class="container">
-
-
-
-    <div class="row justify-content-md-center">
+<div class="row justify-content-md-center">
 <form action="/register" method="POST">
   <div class="form-group">
     <label for="NomUtilisateur">Nom' Utilisateur</label>
@@ -66,7 +63,7 @@
     <label for="exampleInputphone">Téléphone portable</label>
     <small id="emailHelp" class="form-text text-muted">require</small>
   <div class="form-group">
-    <input type="text" class="form-control" id="phone"  name="phone" aria-describedby="phoneHelp" placeholder="Téléphone portable" required>
+    <input type="text" class="form-control" id="phone"  name="phone" type="number" aria-describedby="phoneHelp" placeholder="Téléphone portable" required>
     
 
   </div>

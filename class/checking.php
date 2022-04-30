@@ -42,23 +42,18 @@ if(isset($_POST['btn-signup']))
       $activecode=$user->generate_activation_code();
       try
       {
-        /* $stmt = $user->db->prepare("SELECT username,email FROM users WHERE username=:uname OR email=:umail");
+        $stmt = $user->db->prepare("SELECT username,email FROM users WHERE username=:uname OR email=:umail");
          $stmt->execute(array(':uname'=>$uname, ':umail'=>$umail));
          $row=$stmt->fetch(PDO::FETCH_ASSOC);
          if($row['username'] == $uname) {
-            $errors[] = "sorry username already taken !";
+            echo "<script>alert('sorry username already taken !')</script>";
          }
          elseif($row['email'] == $umail) {
-            $errors[] = "sorry email id already taken !";
+            echo "<script>alert('sorry email id already taken !')</script>";
 
-         }
-         else
-         {*/
-            
-            if($user->register($uname,$umail,$upass,$uphone,$activecode)) 
-            {
-              
-
+         }  
+         elseif(!$errors){
+         $user->register($uname,$umail,$upass,$uphone,$activecode);     
          // sending email for confirmation account activate process
          $recieverEmail = $umail;
          $subject = "Activate Your Account ";

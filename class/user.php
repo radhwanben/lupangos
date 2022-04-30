@@ -41,49 +41,21 @@ class USER
     }
 
 
-    function send_activation_email(string $email, string $activation_code): void
-    {
-        // create the activation link
-        $activation_link =  "localhost:8000/activate.php?email=$email&activation_code=$activation_code";
-    
-        // set email subject & body
-        $subject = 'Please activate your account';
-        $message = <<<MESSAGE
-                Hi,
-                Please click the following link to activate your account:
-                $activation_link
-                MESSAGE;
-        // email header
-        $header = "From: contact@localhost:9800";
-    
-        // send the email
-        mail($email, $subject, nl2br($message), $header);
-    
-    }
-
-
-    function find_unverified_user(string $activation_code, string $email)
+    function find_unverified_user(string $activation_code, string $username)
     {
     
         $sql = 'SELECT id, activation_code, activation_expiry < now() as expired
                 FROM users
-                WHERE active = 0 AND email=:email';
+                WHERE active = 0 AND username=:username';
     
         $statement = $this->db->prepare($sql);
     
-        $statement->bindValue(':email', $email);
+        $statement->bindValue(':username', $username);
         $statement->execute();
     
         $user = $statement->fetch(PDO::FETCH_ASSOC);
-    
-        if ($user) {
-            // verify the password
-            if (password_verify($activation_code, $user['activation_code'])) {
-                return $user;
-            }
-        }
-    
-        return null;
+        
+        return $user;
     }
     function login(string $username, string $password): bool
     {
