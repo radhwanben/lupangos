@@ -81,7 +81,7 @@ include 'includes/header.php';
         <a href="#" style="float:left;font-size:12px; text-decoration: none;">Forgot password?</a>
         </label>
         <div class="form-group">
-        <button type="submit" class="form-control form-control-sm btn btn-primary btn-block" name="btn-login">Sign in</button>
+        <input type="submit" class="form-control form-control-sm btn btn-primary btn-block" name="btn-login" value="Sign in" />
         </div>
 				
 			</form>

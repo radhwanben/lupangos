@@ -980,3 +980,10 @@ padding:20px 0 0;
 .text-muted{
   float: right;
 }
+.rounded-circle {
+  width: 7%;
+}
+
+a {
+  text-decoration: none !important;
+}

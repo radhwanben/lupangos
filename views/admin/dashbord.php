@@ -1,6 +1,6 @@
 <?php
 
-include 'includes/adminheader.php';
+include 'includes/admin/adminheader.php';
 
 ?>
 
@@ -13,7 +13,7 @@ include 'includes/adminheader.php';
 
 
 <?php
- include 'includes/adminnavbar.php';
- include 'includes/adminfooter.php';
+ include 'includes/admin/adminnavbar.php';
+ include 'includes/admin/adminfooter.php';
  ?>
 

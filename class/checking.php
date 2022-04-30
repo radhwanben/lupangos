@@ -78,7 +78,6 @@ if(isset($_POST['btn-signup']))
   } 
 }
 
-
 // login user part 
 
 if(isset($_POST['btn-login']))

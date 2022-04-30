@@ -12,13 +12,15 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/register', 'views/register.php');
     $r->addRoute('GET', '/home', 'views/home.php');
     $r->addRoute('POST', '/register', 'class/checking.php');
+    $r->addRoute('POST', '/', 'class/checking.php');
     $r->addRoute('POST', '/login', 'class/checking.php');
-
     //activation users accounts routes
     $r->addRoute('GET', '/activate/uname={username}&activation_code={code}', 'views/activate.php');
+    // user home and profile
+    $r->addRoute('GET', '/dashbord', 'views/users/dashbord.php');
 
     //admin routes
-    $r->addRoute('GET', '/admin', 'views/dashbord.php');
+    $r->addRoute('GET', '/admin', 'views/admin/dashbord.php');
 
 });
 

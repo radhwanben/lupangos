@@ -59,9 +59,9 @@ class USER
     }
     function login(string $username, string $password): bool
     {
-        $user = find_user_by_username($username);
+        $user =$this->find_user_by_username($username);
     
-        if ($user && is_user_active($user) && password_verify($password, $user['password'])) {
+        if ($user && $this->is_user_active($user) && password_verify($password, $user['password'])) {
             // prevent session fixation attack
             session_regenerate_id();
     
@@ -122,6 +122,8 @@ class USER
        header("Location: $url");
    }
  
+
+
    public function logout()
    {
         session_destroy();
