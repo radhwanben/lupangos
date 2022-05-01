@@ -1,5 +1,6 @@
 <?php
    include 'includes/header.php';
+   include 'class/checkingusers.php' ;
 ?>
 <header class="header-main-wrap ">
    <div id="header-section" class="header-desktop header-v1" data-sticky="0">
@@ -8,17 +9,17 @@
             <div class="navbar d-flex align-items-center">
                <div class="logo logo-desktop">
                   <a href="http://lupangos.com/">
-                  <img src="https://i.ibb.co/m8SB35V/Lupangos-Full-Logo-PNG.png" height="80" width="80" alt="logo">
+                  <img src="https://i.ibb.co/m8SB35V/Lupangos-Full-Logo-PNG.png" width="50px" alt="logo">
                   </a>
-                  <a href="http://lupangos.com/create-listing/" class="btn btn-lg btn-create-listing "><i class="fa-solid fa-plus" style="border: 3px white solid"></i>Déposer une annonce</a>
-               </div>
-               <ul class="navbar-nav mr-auto">
-               <li class="nav-item">
-                  <i class="fa-brands fa-searchengin">
-                  <input class="form-group" type="text" placeholder="recherche"  />
-                  </i>
-                </li>
-                </ul>
+                  <a href="http://lupangos.com/create-listing/" class="btn btn-lg btn-create-listing "><i class="fa-solid fa-plus" style="border: 3px white solid"> </i> Déposer une annonce</a>
+                  <div class="input-group">
+                  <div class="input-group-addon">
+                  <i class="fa-brands fa-searchengin"></i>
+                  </div>
+                  <input class="form-control   shadow-none" id="searchinput" type="text" placeholder="recherche"  />
+                </div>              
+                </div>
+              
                <!-- main-nav -->
                <div class="login-register on-hover-menu">
                   <ul class="login-register-nav dropdown d-flex align-items-center" style="list-style-type: none;">
@@ -52,6 +53,7 @@
             <div class="card">
             <div class="card-body">
             <img class="rounded-circle card-img" style="width=7%" src="https://png.pngtree.com/png-vector/20190114/ourlarge/pngtree-vector-add-user-icon-png-image_313043.jpg" />
+            <p class="card-title"><?php echo $data['username'] ;?></p>
             <a href="" class="btn btn-outline-dark" style="float: right;">voir mon profile</a>
             </div>
             </div>
@@ -91,7 +93,7 @@
         </div>
         <div class="col-md-6">
             <div class="card">
-            <a href="" class="btn-outline-dark card-link">
+            <a href="/profile" class="btn-outline-dark card-link">
                 <div class="card-body">
                 <p class="card-title"><i class="fa-solid fa-user"></i><br>Profile</p>
                 <p class="card-text">modifer mon profile public </p>
@@ -125,6 +127,7 @@
 
         <div class="col-md-6"></div>
 <br>
-        <a href="" >Me déconcter</a>
+        
+        <a href="/logout"  >Me déconcter</a>
 
 </div>

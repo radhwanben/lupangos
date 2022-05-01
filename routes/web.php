@@ -18,6 +18,9 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/activate/uname={username}&activation_code={code}', 'views/activate.php');
     // user home and profile
     $r->addRoute('GET', '/dashbord', 'views/users/dashbord.php');
+    $r->addRoute('GET', '/profile', 'views/users/profile.php');
+    $r->addRoute('POST', '/profile/update', 'class/checkingusers.php');
+    $r->addRoute('GET', '/logout', 'class/logout.php');
 
     //admin routes
     $r->addRoute('GET', '/admin', 'views/admin/dashbord.php');

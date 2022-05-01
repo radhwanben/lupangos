@@ -17,10 +17,10 @@ if($user->is_loggedin()!="")
 
 if(isset($_POST['btn-signup']))
 {
-   $uname = trim($_POST['uname']);
-   $umail = trim($_POST['email']);
-   $upass = trim($_POST['password']); 
-   $uphone = trim($_POST['phone']); 
+   $uname = htmlspecialchars(trim($_POST['uname']) , ENT_QUOTES, 'UTF-8');
+   $umail = htmlspecialchars(trim($_POST['email']), ENT_QUOTES, 'UTF-8');
+   $upass = htmlspecialchars(trim($_POST['password']), ENT_QUOTES, 'UTF-8'); 
+   $uphone = htmlspecialchars(trim($_POST['phone']), ENT_QUOTES, 'UTF-8'); 
  
    if($uname=="") {
       $error[] = "provide username !"; 
@@ -82,19 +82,20 @@ if(isset($_POST['btn-signup']))
 
 if(isset($_POST['btn-login']))
 {
- $umail = $_POST['email'];
- $upass = $_POST['password'];
+   $uname = htmlspecialchars(trim($_POST['uname']) , ENT_QUOTES, 'UTF-8');
+   $umail = htmlspecialchars(trim($_POST['email']), ENT_QUOTES, 'UTF-8');
+   $upass = htmlspecialchars(trim($_POST['password']), ENT_QUOTES, 'UTF-8'); 
+   $uphone = htmlspecialchars(trim($_POST['phone']), ENT_QUOTES, 'UTF-8'); 
   
- if($user->login($umail,$upass))
+ if($user->login($uname,$umail,$upass))
  {
-  $user->redirect('/home');
+   $user->is_loggedin();
+  $user->redirect('/dashbord');
  }
  else
- {
+   {
    $user->redirect('/login');
-} 
-
-
+   } 
 }
 
 ?>

@@ -15,9 +15,9 @@
 
 	<div class="logo logo-desktop">
 		<a href="http://lupangos.com/">
-							<img src="https://i.ibb.co/m8SB35V/Lupangos-Full-Logo-PNG.png" height="80" width="80" alt="logo">
+							<img src="https://i.ibb.co/m8SB35V/Lupangos-Full-Logo-PNG.png"  width="50px" alt="logo">
 					</a>
-    <a href="http://lupangos.com/create-listing/" class="btn btn-lg btn-create-listing "><i class="fa-solid fa-plus" style="border: 3px white solid"></i>Déposer une annonce</a>
+    <a href="http://lupangos.com/create-listing/" class="btn btn-lg btn-create-listing "><i class="fa-solid fa-plus" style="border: 3px white solid"> </i> Déposer une annonce</a>
 	</div>
 
 				<nav class="main-nav on-hover-menu navbar-expand-lg flex-grow-1">

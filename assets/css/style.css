@@ -987,3 +987,27 @@ padding:20px 0 0;
 a {
   text-decoration: none !important;
 }
+
+.form-control {
+  border: 0;
+}
+.input-group {
+  position: relative;
+  /* display: flex; */
+  display: inline-flex;
+ flex-wrap: wrap; 
+ width: 45%;
+}
+
+.input-group:not(.has-validation)>.dropdown-toggle:nth-last-child(n+3), .input-group:not(.has-validation)>:not(:last-child):not(.dropdown-toggle):not(.dropdown-menu) 
+{
+  margin-left: 10%;
+}
+
+#profileinput{
+  border: 1px solid;
+}
+#password{
+  border:1px solid;
+}
+

@@ -1,7 +1,15 @@
 <?php
 
 include 'includes/header.php';
+include 'class/user.php';
 
+$user=new user();
+session_start();
+
+if($user->is_loggedin() !="")
+{
+    $user->redirect('/dashbord');
+}
 ?>
 <header class="header-main-wrap ">
     <div id="header-section" class="header-desktop header-v1" data-sticky="0">
@@ -13,9 +21,9 @@ include 'includes/header.php';
 
 	<div class="logo logo-desktop">
 		<a href="http://lupangos.com/">
-							<img src="https://i.ibb.co/m8SB35V/Lupangos-Full-Logo-PNG.png" height="80" width="80" alt="logo">
+							<img src="https://i.ibb.co/m8SB35V/Lupangos-Full-Logo-PNG.png"  width="50px" alt="logo">
 					</a>
-    <a href="http://lupangos.com/create-listing/" class="btn btn-lg btn-create-listing "><i class="fa-solid fa-plus" style="border: 3px white solid"></i>Déposer une annonce</a>
+          <a href="http://lupangos.com/create-listing/" class="btn btn-lg btn-create-listing "><i class="fa-solid fa-plus" style="border: 3px white solid"> </i> Déposer une annonce</a>
 	</div>
 
 				<nav class="main-nav on-hover-menu navbar-expand-lg flex-grow-1">
@@ -70,7 +78,7 @@ include 'includes/header.php';
 				<!-- to error: add class "has-danger" -->
 				<div class="form-group">
 <label for="exampleInputEmail1" style="padding-bottom: 20px;padding-top: 20px;">E-mail address</label>
-          <input type="email" name="email" class="form-control form-control-sm"  required>
+          <input type="email" name="email"  id="profileinput" class="form-control form-control-sm"  required>
 				</div>
 				<div class="form-group">
 					<label for="password"  style="padding-bottom: 2px;padding-top: 5px;">Password</label>

@@ -6,7 +6,7 @@ class USER
 {
     public $db;
  
-    function __construct()
+    public function __construct()
     {
         $this->db = database::connection();
     }
@@ -35,13 +35,15 @@ class USER
        }    
     }
  
+
     public function generate_activation_code(): string
     {
         return bin2hex(random_bytes(16));
     }
 
 
-    function find_unverified_user(string $activation_code, string $username)
+
+    public function find_unverified_user(string $activation_code, string $username)
     {
     
         $sql = 'SELECT id, activation_code, activation_expiry < now() as expired
@@ -57,26 +59,56 @@ class USER
         
         return $user;
     }
-    function login(string $username, string $password): bool
+
+
+    public function login(string $username,string $email, string $password): bool
     {
-        $user =$this->find_user_by_username($username);
-    
-        if ($user && $this->is_user_active($user) && password_verify($password, $user['password'])) {
-            // prevent session fixation attack
-            session_regenerate_id();
-    
-            // set username in the session
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['username'];
-    
-            return true;
+       try
+       {
+          $stmt = $this->db->prepare("SELECT * FROM users WHERE username=:username OR email=:email LIMIT 1");
+          $stmt->execute(array(':username'=>$username, ':email'=>$email));
+          $userRow=$stmt->fetch(PDO::FETCH_ASSOC);
+          if($stmt->rowCount() > 0)
+          {
+             if(password_verify($password, $userRow['password']))
+             {
+                session_start();
+                $_SESSION['user_session'] = $userRow['username'];
+                return true;
+             }
+             else
+             {
+                return false;
+             }
+          }
+       }
+       catch(PDOException $e)
+       {
+           echo $e->getMessage();
+       }
+ 
+    }
+
+    public function getUserData(string $username)
+    {
+        try {
+            
+            $stmt =$this->db->prepare("SELECT id,username,email,phone FROM USERS WHERE username=:username");
+            $stmt->execute(array(':username'=>$username));
+            $userRow =$stmt->fetch(PDO::FETCH_ASSOC);
+            if($stmt->rowCount() > 0){
+                return $userRow;
+            }
+
+        } catch (PDOException $e) {
+          
+            echo $e->getMessage();
+            
         }
-    
-        return false;
     }
  
 
-   function find_user_by_username(string $username)
+  public function find_user_by_username(string $username)
    {
        $sql = 'SELECT username, password, active, email
                FROM users
@@ -89,13 +121,13 @@ class USER
        return $statement->fetch(PDO::FETCH_ASSOC);
    }
 
-   function is_user_active($user)
+   public function is_user_active($user):int
    {
        return (int)$user['active'] === 1;
    }
 
 
-   function activate_user(int $user_id): bool
+   public function activate_user(int $user_id): bool
     {
         $sql = 'UPDATE users
                 SET active = 1,
@@ -119,10 +151,13 @@ class USER
  
    public function redirect($url)
    {
-       header("Location: $url");
+       header("Location: $url",true, 301);
    }
  
-
+   public function forgetPassword($email)
+   {
+       
+   }
 
    public function logout()
    {
