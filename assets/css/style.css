@@ -1011,3 +1011,8 @@ a {
   border:1px solid;
 }
 
+.border-dark{
+  border-color: #e7e7e7b8!important;
+  text-align: center;
+}
+

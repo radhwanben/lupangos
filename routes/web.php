@@ -20,6 +20,7 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/dashbord', 'views/users/dashbord.php');
     $r->addRoute('GET', '/profile', 'views/users/profile.php');
     $r->addRoute('POST', '/profile/update', 'class/checkingusers.php');
+    $r->addRoute('GET', '/buy-credit', 'views/users/credit.php');
     $r->addRoute('GET', '/logout', 'class/logout.php');
 
     //admin routes

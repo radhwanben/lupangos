@@ -27,7 +27,7 @@ if(isset($_POST['btn-update'])){
   
   $userhandler->UpdateUserInfo($data['id'],$username);
 
-    $user->redirect('/dashbord');
+  $user->redirect('/dashbord');
 
   
 }
