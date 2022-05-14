@@ -65,43 +65,47 @@ include 'class/checkingusers.php' ;
 <br>
 <br>
 <div class="col-md-12 ">
+<h2 style="float:right;">votre solde:0</h2>
 <h2>Acheter des crédits</h2>
 <p>Maitrisez votre budget du temps : payer vos dépots et vos options de facilement grace aux crédits ! </p>
 <p>le crédits ne sont pas utlisables pour le réglements effectués via la service payment sécurisé leboncoin . </p>
 </div>
-<div class="row ">
-    <form class="form-group" action="" method="post">
-        <div class="col md-12">
-        <div class="border border-dark">
-            <input type="radio" name="price" value="150" />
-            <label class="">150$</label>
-        </div>
-       
-        <div class="border border-dark">
-            <input type="radio" name="price" value="150" />
+<div class="row">
+   
+  <div class="col">
+  <form class="form-group" action="" method="post">
+  <div class="border border-dark">
+  <input type="radio" name="price" class="border border-dark" value="150" />
             <label>150$</label>
-        </div>
-    
-        <div class="border border-dark">
-            <input type="radio" name="price" value="150" />
+  </div>
+  </div>
+  <div class="col">
+  <div class="border border-dark">
+  <input type="radio" name="price" value="150" />
             <label>150$</label>
-        </div>
-       
-        <div class="border border-dark">
-            <input type="radio" name="price" value="150" />
+  </div>
+  </div>
+
+  <div class="col">
+  <div class="border border-dark">
+  <input type="radio" name="price" value="150" />
             <label>150$</label>
-        </div>
-        </div>
-        <span>les montant des credits sont indqués en TTC </span>
+  </div>
+  </div>
+
+  <div class="col">
+  <div class="border border-dark">
+  <input type="radio" name="price" value="150" />
+            <label>150$</label>
+         </div>
+         </div>
+</div>
+<span>les montant des credits sont indqués en TTC </span>
         <br>
         <br>
-        <p><input type="checkbox" > je reconais avoir lu accepté les <a href=""> conditional de vente</a> (nos CGV on evalute , nhésurez pas a les consulter ) et renonce à mon droit de 
+        <p><input type="checkbox" required> je reconais avoir lu accepté les <a href=""> conditional de vente</a> (nos CGV on evalute , nhésurez pas a les consulter ) et renonce à mon droit de 
             réclamation . En validant ma commande 
         </p>
-        
-</div>
 <div class="col md 1">
 <input class="btn btn-sm btn-danger" type="submit" value="valider">
 </form>
-</div>
-</div>

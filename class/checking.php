@@ -89,7 +89,7 @@ if(isset($_POST['btn-login']))
   
  if($user->login($uname,$umail,$upass))
  {
-   $user->is_loggedin();
+  $user->is_loggedin();
   $user->redirect('/dashbord');
  }
  else

@@ -86,7 +86,7 @@ if($user->is_loggedin() !="")
           <i class="fa-solid fa-eye errspan" id="togglePassword"></i>
         </div>
         <label for="exampleInputPassword1"  style="padding-bottom: 10px;padding-top: 10px;">
-        <a href="#" style="float:left;font-size:12px; text-decoration: none;">Forgot password?</a>
+        <a href="/forget-password" style="float:left;font-size:12px; text-decoration: none;">Forgot password?</a>
         </label>
         <div class="form-group">
         <input type="submit" class="form-control form-control-sm btn btn-primary btn-block" name="btn-login" value="Sign in" />

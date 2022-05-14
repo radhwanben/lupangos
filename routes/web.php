@@ -14,6 +14,8 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('POST', '/register', 'class/checking.php');
     $r->addRoute('POST', '/', 'class/checking.php');
     $r->addRoute('POST', '/login', 'class/checking.php');
+    $r->addRoute('GET', '/forget-password', 'views/fpassword.php');
+
     //activation users accounts routes
     $r->addRoute('GET', '/activate/uname={username}&activation_code={code}', 'views/activate.php');
     // user home and profile

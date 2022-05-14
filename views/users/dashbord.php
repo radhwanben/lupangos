@@ -117,7 +117,7 @@
 
         <div class="col-md-6" style="padding-top: 32px;">
             <div class="card">
-            <a href="" class=" card-link">
+            <a href="/buy-credit" class=" card-link">
                 <div class="card-body">
                 <p class="card-link">Acheter des credits</p>
                 </div>

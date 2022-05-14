@@ -57,22 +57,25 @@ include 'class/checkingusers.php' ;
 
 <div class="container">
 <div class="row justify-content-md-center">
-        <div class="col-md-12 ">
+        <div class="col-md-12  ">
             <div class="card-body">
+                <a class="btn btn-outline-primary" style="float:right">voir mon Profil Public</a>
                 <P>Profil</P>
                 
             <img class="rounded-circle card-img" style="width=7%" src="https://png.pngtree.com/png-vector/20190114/ourlarge/pngtree-vector-add-user-icon-png-image_313043.jpg" />
             <br>
             <br>
+            <div class="col-2">
             <form class="form-group" action="/profile/update" method="POST">
                 <input class="form-control x" type="text" name="username" placeholder="<?php echo $data['username'] ;?>" id="profileinput" required ><br>
+                <input class="form-control x" type="text" name="username" placeholder="<?php echo $data['email'] ;?>" id="profileinput" required ><br>
+                <input class="form-control x" type="text" name="username" placeholder="<?php echo $data['phone'] ;?>" id="profileinput" required ><br>
                 <input class="btn btn-primary"  name="btn-update" type="submit" value="Enregister Les Modification" >
             </form>
-            <a href="" class="btn btn-outline-dark" style="float: right;">voir mon profile</a>
+            </div>
             </div>
             </div>
         </div>
-
         <br>
         <br>
         <br>

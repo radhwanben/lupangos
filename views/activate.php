@@ -29,7 +29,7 @@ $inputs['activation_code'] =$uri_parts[2];
         // if user exists and activate the user successfully
         if ($active) {
 
-            echo 'You account has been activated successfully. Please login here.';
+            include "thanks.php";
 
          }else{
              
